@@ -13,6 +13,7 @@ In their work they used 804 data samples out of the 1713 samples available to pr
 ## Method/ML Models
 1. Support Vector Machines: A support Vector Classfier is one that chooses the best hyperplane that maximises distance between the two classes. The non-linear ‘rbf’ kernel tends to perfrom better for this task so it was kept constant in the grid search. However, the C values and the gamma values were varied. The grid search parameters are given below. The best combination was then used in the classification model and the crossvaligdation accuracy (k-fold with k=5) and the standard deviation was recorded. the standard deviation is used to understand the uncertainty of the model.
 param_grid = {'C': np.logspace(1, 2.3, 10), 'gamma': np.linspace(0,2, 5), 'kernel': ['rbf']}
+
 2. Bagging Classifier: The idea of the bagging classifier is to be able to combine several simple classifiers to create a more complex classification boundary. Here several SVM classifiers were pooled together or ‘bagged’. This model was tuned using a grid search method over a range of hyperparameters selected. The grid search parameters are given below:
 param_grid = {'n_estimators': list(range(0, 110, 10))[1:], 'max_features': list (range(1,21, 2))}
 3. Extremely Randomised Trees Classifier: Extremely randomized trees pick a node split very extremely (both a variable index and variable splitting value are chosen randomly as opposed to Random Forest that finds the best split (optimal one by variable index and variable splitting value) among random subset of variables [1]. This model was tuned using a grid search method over a range of hyper parameters selected. The grid search parameters are given below:
@@ -44,12 +45,12 @@ Here, the class weights were balanced for 4 of the classification models: Suppor
 The Random Forest Algorithm tend to perform better than other classifiers for the wildfire prediction problem. Note that the accuracy values obtained in this work is lower than those obtained in the original paper, this is is because more samples of data were used.
 
 ## References
-[1] Extremely randomized trees: https://docs.opencv.org/2.4/modules/ml/doc/ertrees.html
-[2] AdaBoost Classifier: https://www.datacamp.com/community/tutorials/adaboost-classifier-python
-[3] Gradient boosting Classifiers: https://stackabuse.com/gradient-boosting-classifiers-in-python-with-scikit-learn/
-[4] Random Forest Classification: https://towardsdatascience.com/random-forest-classification-and-its-implementation-d5d840dbead0
-[5] Types of Classification Algorithms: Which Is Right for Your Problem?: https://missinglink.ai/guides/neural-network-concepts/classification-neural-networks-neural-network-right-choice/
-[6] ML | Stochastic Gradient Descent (SGD): https://www.geeksforgeeks.org/ml-stochastic-gradient-descent-sgd/
+1. Extremely randomized trees: https://docs.opencv.org/2.4/modules/ml/doc/ertrees.html
+2. AdaBoost Classifier: https://www.datacamp.com/community/tutorials/adaboost-classifier-python
+3. Gradient boosting Classifiers: https://stackabuse.com/gradient-boosting-classifiers-in-python-with-scikit-learn/
+4. Random Forest Classification: https://towardsdatascience.com/random-forest-classification-and-its-implementation-d5d840dbead0
+5. Types of Classification Algorithms: Which Is Right for Your Problem?: https://missinglink.ai/guides/neural-network-concepts/classification-neural-networks-neural-network-right-choice/
+6. ML | Stochastic Gradient Descent (SGD): https://www.geeksforgeeks.org/ml-stochastic-gradient-descent-sgd/
 
 
 More details on the result analysis can be found here: https://sites.tufts.edu/olukunleowolabi/2020/03/15/a-comprehensive-classification-model-for-predicting-wildfires-with-uncertainty/
